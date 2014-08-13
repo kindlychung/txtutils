@@ -1,0 +1,13 @@
+require(devtools)
+Sys.setenv("PKG_CXXFLAGS"="-std=c++11")
+countlines("test.assoc.linear")
+fileExists("test.assoc.linear")
+ncols("test.assoc.linear")
+readcol("test.assoc.linear", 3, 1, 5)
+x = readplinkoutr(filename = "test.assoc.linear", colnameSelect = c("SNP", "TEST", "P"))
+x = matrix(1:100, 10)
+y = paste("=debug========\n", paste(capture.output(print(head(x))), collapse="\n"))
+message(y)
+
+require(devtools)
+install_github()

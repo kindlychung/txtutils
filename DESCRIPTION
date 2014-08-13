@@ -1,0 +1,11 @@
+Package: txtutils
+Type: Package
+Title: An auxiliary package for processing text files
+Version: 1.0
+Date: 2014-08-13
+Author: Kaiyin Zhong
+Maintainer: Kaiyin Zhong <kindlychung@gmail.com>
+Description: An auxiliary package for processing text files
+License: GPL
+Imports: Rcpp (>= 0.11.2)
+LinkingTo: Rcpp
