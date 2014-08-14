@@ -8,10 +8,12 @@
 
 
 #include "ncols.h"
+
 //' Counts the number of columns of whitespace delimited file.
 //'
 //' @param string input filepath
 //' @return numeric a integer for the number of columns
+//' @export
 //' @examples
 //' ncols(system.file("example/test.assoc.linear", package="txtutils")
 // [[Rcpp::export]]

@@ -1,9 +1,13 @@
 {
-    "path" : "~/personal_config_bin_files/workspace/txtutils",
+    "path" : "~/personal_config_bin_files/workspace/txtutils/man",
     "sortOrder" : [
         {
-            "ascending" : false,
+            "ascending" : true,
             "columnIndex" : 2
+        },
+        {
+            "ascending" : false,
+            "columnIndex" : 4
         }
     ]
 }

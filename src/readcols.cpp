@@ -17,6 +17,7 @@
 //' @param integer skip the first N lines
 //' @param integer read one line out of every M
 //' @return matrix a matrix of strings from selected columns
+//' @export
 //' @examples
 //' readcol(system.file("example/test.assoc.linear", package="txtutils"), 2, 1, 15)
 // [[Rcpp::export]]

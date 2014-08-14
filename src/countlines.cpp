@@ -4,6 +4,7 @@
 //'
 //' @param string input filepath
 //' @return numeric a integer for the number of lines
+//' @export
 //' @examples
 //' countlines(system.file("example/test.assoc.linear", package="txtutils")
 // [[Rcpp::export]]

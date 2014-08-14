@@ -9,6 +9,7 @@
 //' @param integer skip the first N lines
 //' @param integer maximum number of lines to read
 //' @return vector a vector of strings containing the target column
+//' @export
 //' @examples
 //' readcol(system.file("example/test.assoc.linear", package="txtutils"), 2, 1, 15)
 // [[Rcpp::export]]
