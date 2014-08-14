@@ -8,9 +8,12 @@
 
 
 #include "ncols.h"
-
-// Counts the number of columns of tab / space delimited file.
-// Quoted fields not supported, assumes that no field contains any whitespace!
+//' Counts the number of columns of whitespace delimited file.
+//'
+//' @param string input filepath
+//' @return numeric a integer for the number of columns
+//' @examples
+//' ncols(system.file("example/test.assoc.linear", package="txtutils")
 // [[Rcpp::export]]
 size_t ncols(std::string fn) {
     try {

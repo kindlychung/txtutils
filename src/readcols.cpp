@@ -9,6 +9,16 @@
 #include "debugPrint.h"
 
 
+
+//' Read columns of a whitespace delimited text file
+//'
+//' @param string input filepath
+//' @param vector a vector of target column numbers
+//' @param integer skip the first N lines
+//' @param integer read one line out of every M
+//' @return matrix a matrix of strings from selected columns
+//' @examples
+//' readcol(system.file("example/test.assoc.linear", package="txtutils"), 2, 1, 15)
 // [[Rcpp::export]]
 Rcpp::CharacterMatrix readcols(std::string fn,
 		std::vector<int> colsel, size_t nFirstSkipLines,
@@ -20,18 +30,18 @@ Rcpp::CharacterMatrix readcols(std::string fn,
 
 
 	size_t nc_file = ncols(fn);
-    debugPrint<>("File has ", nc_file, " columns \n");
+    debugPrint("File has ", nc_file, " columns \n");
 	size_t nr_file = countlines(fn);
-    debugPrint<>("File has " , nr_file , " rows \n");
-    debugPrint<>("You want to skip the first " ,  nFirstSkipLines , " lines \n");
+    debugPrint("File has " , nr_file , " rows \n");
+    debugPrint("You want to skip the first " ,  nFirstSkipLines , " lines \n");
 	size_t nr_left = nr_file - nFirstSkipLines;
-    debugPrint<>("Lines left: " , nr_left , "\n");
+    debugPrint("Lines left: " , nr_left , "\n");
 
-	debugPrint<>("Of the rest you want to select one line out of every " , nSkipUnit , " lines \n");
+	debugPrint("Of the rest you want to select one line out of every " , nSkipUnit , " lines \n");
 	size_t nr = (size_t) (nr_left / nSkipUnit);
-	debugPrint<>("You selected " , nr , " rows \n");
+	debugPrint("You selected " , nr , " rows \n");
 	size_t nc = colsel.size();
-	debugPrint<>("You selected " , nc , " columns \n");
+	debugPrint("You selected " , nc , " columns \n");
 
 
 	{
@@ -41,13 +51,13 @@ Rcpp::CharacterMatrix readcols(std::string fn,
 			nr++;
 		}
 		else {
-			debugPrint<>("Number of lines to read is a multiple of nSkipUnit \n");
+			debugPrint("Number of lines to read is a multiple of nSkipUnit \n");
 		}
 	}
 
-	debugPrint<>("Calculating max column number...\n");
+	debugPrint("Calculating max column number...\n");
 	unsigned int colsel_max = *std::max_element(colsel.begin(), colsel.end());
-	debugPrint<>("Max column number is " , colsel_max , "\n");
+	debugPrint("Max column number is " , colsel_max , "\n");
 
 	if (colsel_max > nc_file) {
 		throw std::string("Some col number(s) are out of range!");
@@ -60,14 +70,14 @@ Rcpp::CharacterMatrix readcols(std::string fn,
 
 	// initialize a 2d vector (matrix) with fixed size
 //	std::vector< std::vector<std::string> > res(nc, std::vector<std::string>(nr));
-    debugPrint<>("Allocating a matrix of " , nr , " rows and " , nc , " columns.\n");
+    debugPrint("Allocating a matrix of " , nr , " rows and " , nc , " columns.\n");
 	Rcpp::CharacterMatrix res(nr, nc);
 	std::ifstream infile(fn.c_str());
 	std::string tmpline;
 
 	// skip lines in the beginning
 	for (int lineIter = 0; lineIter < nFirstSkipLines; lineIter++) {
-		debugPrint<>("Skipping line " , lineIter + 1 , "\n");
+		debugPrint("Skipping line " , lineIter + 1 , "\n");
 		getline(infile, tmpline);
 	}
 

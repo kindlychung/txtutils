@@ -7,5 +7,6 @@ Author: Kaiyin Zhong
 Maintainer: Kaiyin Zhong <kindlychung@gmail.com>
 Description: An auxiliary package for processing text files
 License: GPL
-Imports: Rcpp (>= 0.11.2)
+Imports:
+    Rcpp (>= 0.11.2)
 LinkingTo: Rcpp

@@ -1,6 +1,11 @@
 #include "countlines.h"
 
-// count lines of a file
+//' Count the number of lines in a file
+//'
+//' @param string input filepath
+//' @return numeric a integer for the number of lines
+//' @examples
+//' countlines(system.file("example/test.assoc.linear", package="txtutils")
 // [[Rcpp::export]]
 size_t countlines(std::string fn) {
     std::ifstream in_file(fn.c_str());
